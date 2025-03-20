@@ -1,0 +1,186 @@
+body {
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* First Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 15px;
+    color: #ffffff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: #ffffff;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav-btn:hover {
+    background-color: #2f2d2d;
+    color: rgb(244, 244, 244);
+}
+
+/* Second Navbar (Directly Below First Navbar) */
+.second-nav {
+    background-color: #2a2a2a;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.second-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.second-nav a:hover {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Second Navbar (Bottom) */
+.bottom-nav {
+    background-color: #000000;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bottom-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.bottom-nav a:hover {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.category {
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.product-grid img {
+    width: 100px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Banner Section */
+.banner-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.banner img.active {
+    opacity: 1;
+}
+   /* Meal Plan Title */
+.meal-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 50px 0;
+}
+
+  /* Filters & Meal Plans */
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin: 20px;
+        }
+
+        .meal-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .meal-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .meal-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+         

@@ -1,0 +1,121 @@
+/* Ensure doctors are in a horizontal row */
+.doctor-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    white-space: nowrap;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+}
+
+.doctor-card {
+    cursor: pointer;
+    padding: 15px;
+    border: 1px solid #000;
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    width: 150px;
+    display: inline-block;
+}
+
+.doctor-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.doctor-card:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Hide popup initially */
+/* Popup Overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    backdrop-filter: blur(10px); /* Blur effect */
+    z-index: 999;
+}
+
+/* Popup Modal */
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    background: #ffffff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show Popup */
+.popup-overlay.active {
+    display: block;
+}
+
+.popup.active {
+    opacity: 1;
+}
+
+/* Popup Buttons */
+.popup-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.popup-buttons button {
+    padding: 10px 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.popup-buttons button:hover {
+    background: #000;
+    color: #fff;
+}
+.meal-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.meal-item {
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.meal-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto 10px;
+}

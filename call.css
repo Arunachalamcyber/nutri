@@ -1,0 +1,110 @@
+
+body {
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* First Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 15px;
+    color: #ffffff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: #ffffff;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav-btn:hover {
+    background-color: #2f2d2d;
+    color: rgb(244, 244, 244);
+}
+
+/* Second Navbar (Directly Below First Navbar) */
+.second-nav {
+    background-color: #2a2a2a;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.second-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.second-nav a:hover {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Second Navbar (Bottom) */
+.bottom-nav {
+    background-color: #000000;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bottom-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.bottom-nav a:hover {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+        .con { max-width: 400px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px; }
+        .button { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #000000; color: white; text-decoration: none; border-radius: 5px; }
+    

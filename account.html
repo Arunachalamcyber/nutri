@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | Nutri</title>
+    <link rel="stylesheet" href="account.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo" onclick="window.location.href='ecom.html'">NUTRI</div>
+        <input type="text" class="search-bar" placeholder="Search">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.location.href='account.html'">Account</button>
+            <button class="nav-btn" onclick="window.location.href='cart.html'">Cart</button>
+        </div>
+    </header>
+
+    <!-- Second Navigation Bar (Below First Navbar) -->
+    <nav class="second-nav">
+        <a href="ecom.html" onclick="window.location.href='ecom.html'">Home</a>
+        <a href="product.html" onclick="window.location.href='product.html'">Products</a>
+        <a href="service.html" onclick="window.location.href='product.html'">Service</a>
+        <a href="contact.html" onclick="window.location.href='product.html'">Contact</a>
+    </nav>
+    <!-- Bottom Navigation Bar -->
+<div class="bottom-nav" style="position: fixed; bottom: 0; width: 100%;text-align: center; padding: 10px;">
+    <a href="contact.html#privacy-policy" style=" margin: 10px; text-decoration: none;">Privacy Policy</a>
+    <a href="contact.html#terms" style=" margin: 10px; text-decoration: none;">Terms of Service</a>
+    <a href="contact.html#contact" style="margin: 10px; text-decoration: none;">Help</a>
+</div>
+
+    <div class="profile-container">
+        <h2>User Profile</h2>
+        
+        <!-- Profile Picture -->
+        <div class="profile-pic-container">
+            <img id="profile-pic" src="default-profile.png" alt="Profile Picture">
+            <input type="file" id="upload-pic" accept="image/*">
+        </div>
+
+        <!-- User Information -->
+        <div class="user-info">
+            <label>Full Name:</label>
+            <input type="text" id="full-name" value="John Doe" disabled>
+            
+            <label>Age:</label>
+            <input type="number" id="age" value="25" disabled>
+
+            <label>Sex:</label>
+            <select id="sex" disabled>
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>Height (cm):</label>
+            <input type="number" id="height" value="175" disabled>
+
+            <label>Weight (kg):</label>
+            <input type="number" id="weight" value="70" disabled>
+
+            <label>Email:</label>
+            <input type="email" id="email" value="johndoe@example.com" disabled>
+
+            <label>Phone:</label>
+            <input type="text" id="phone" value="+91 9876543210" disabled>
+        </div>
+
+        <!-- Buttons -->
+        <button id="edit-btn">Edit Profile</button>
+        <button id="save-btn" class="hidden">Save Changes</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to JavaScript -->
+</body>
+</html>

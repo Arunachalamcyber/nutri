@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon-Style E-Commerce Page</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo" onclick="window.location.href='ecom.html'">NUTRI</div>
+        <input type="text" class="search-bar" placeholder="Search">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.location.href='account.html'">Account</button>
+            <button class="nav-btn" onclick="window.location.href='cart.html'">Cart</button>
+        </div>
+    </header>
+
+    <!-- Second Navigation Bar (Below First Navbar) -->
+    <nav class="second-nav">
+        <a href="ecom.html" onclick="window.location.href='ecom.html'">Home</a>
+        <a href="product.html" onclick="window.location.href='product.html'">Products</a>
+        <a href="service.html" onclick="window.location.href='product.html'">Service</a>
+        <a href="contact.html" onclick="window.location.href='product.html'">Contact</a>
+    </nav>
+    <!-- Bottom Navigation Bar -->
+<div class="bottom-nav" style="position: fixed; bottom: 0; width: 100%;text-align: center; padding: 10px;">
+    <a href="contact.html#privacy-policy" style=" margin: 10px; text-decoration: none;">Privacy Policy</a>
+    <a href="contact.html#terms" style=" margin: 10px; text-decoration: none;">Terms of Service</a>
+    <a href="contact.html#contact" style="margin: 10px; text-decoration: none;">Help</a>
+</div>
+    <h1 style="text-align: center;">Food Product Listings</h1>
+
+    <div class="container">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Organic Honey" style="width: 200px; height: 200px; object-fit: cover;">
+
+            <h3>NUTRI 's Organic Honey</h3>
+            <p>Pure and natural honey sourced from organic farms.</p>
+            <p class="price">₹299</p>
+            <div class="cart-controls">
+                <button class="add-to-cart" onclick="increaseQuantity(0)">Add to Cart</button>
+                <div class="quantity-controls">
+                    <button onclick="decreaseQuantity(0)">-</button>
+                    <span id="quantity-0">0</span>
+                    <button onclick="increaseQuantity(0)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1675237625910-e5d354c03987?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Organic Honey" style="width: 200px; height: 200px; object-fit: cover;">
+            <h3>NUTRI 's Premium Almonds</h3>
+            <p>Rich in nutrients, perfect for healthy snacking.</p>
+            <p class="price">₹499</p>
+            <div class="cart-controls">
+                <button class="add-to-cart" onclick="increaseQuantity(1)">Add to Cart</button>
+                <div class="quantity-controls">
+                    <button onclick="decreaseQuantity(1)">-</button>
+                    <span id="quantity-1">0</span>
+                    <button onclick="increaseQuantity(1)">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product">
+            <img src="https://media.istockphoto.com/id/1845639433/photo/chocolate-bar-pieces-sweet-food-photo-concept-the-chunks-of-broken-chocolate.jpg?s=612x612&w=is&k=20&c=WD2U6OuKwvyhAF2TefQCxEni0lFDUlO5clnIwyN3Z7k=" alt="Organic Honey" style="width: 200px; height: 200px; object-fit: cover;">
+            <h3>NUTRI's Dark Chocolate</h3>
+            <p>High-quality cocoa for an exquisite taste.</p>
+            <p class="price">₹349</p>
+            <div class="cart-controls">
+                <button class="add-to-cart" onclick="increaseQuantity(3)">Add to Cart</button>
+                <div class="quantity-controls">
+                    <button onclick="decreaseQuantity(3)">-</button>
+                    <span id="quantity-3">0</span>
+                    <button onclick="increaseQuantity(3)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1582650859079-ee63913ecb84?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Organic Honey" style="width: 200px; height: 200px; object-fit: cover;">
+            <h3>NUTRI 's Green Tea</h3>
+            <p>Boost metabolism and improve overall health.</p>
+            <p class="price">₹199</p>
+            <div class="cart-controls">
+                <button class="add-to-cart" onclick="increaseQuantity(2)">Add to Cart</button>
+                <div class="quantity-controls">
+                    <button onclick="decreaseQuantity(2)">-</button>
+                    <span id="quantity-2">0</span>
+                    <button onclick="increaseQuantity(2)">+</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let quantities = [0, 0, 0, 0]; // Array for each product quantity
+
+        function increaseQuantity(index) {
+            quantities[index]++;
+            document.getElementById(`quantity-${index}`).textContent = quantities[index];
+        }
+
+        function decreaseQuantity(index) {
+            if (quantities[index] > 0) {
+                quantities[index]--;
+                document.getElementById(`quantity-${index}`).textContent = quantities[index];
+            }
+        }
+    </script>
+</body>
+</html>

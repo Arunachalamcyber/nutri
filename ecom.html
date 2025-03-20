@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Homepage</title>
+    <link rel="stylesheet" href="ecom.css">
+
+<style>
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+    
+    .chart-container {
+        width: 50%;
+        text-align: center;
+    }
+    
+    canvas {
+        max-width: 100%;
+    }
+    
+    .meal-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .meal-list li {
+        background: #e8e8e8;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .meal-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .meal-item {
+            text-align: center;
+            border: 3px solid black;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .meal-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo" onclick="window.location.href='ecom.html'">NUTRI</div>
+        <input type="text" class="search-bar" placeholder="Search">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.location.href='account.html'">Account</button>
+            <button class="nav-btn" onclick="window.location.href='cart.html'">Cart</button>
+        </div>
+    </header>
+
+    <!-- Second Navigation Bar (Below First Navbar) -->
+    <nav class="second-nav">
+        <a href="ecom.html" onclick="window.location.href='ecom.html'">Home</a>
+        <a href="product.html" onclick="window.location.href='product.html'">Products</a>
+        <a href="service.html" onclick="window.location.href='product.html'">Service</a>
+        <a href="contact.html" onclick="window.location.href='product.html'">Contact</a>
+    </nav>
+    <div class="banner-container">
+        <div class="banner">
+            <img src="D:\FORVSCODE\WEB\HTML\NUTRI\IM\IM1.webp" class="active">
+            <img src="D:\FORVSCODE\WEB\HTML\NUTRI\IM\IM2.webp">
+            <img src="D:\FORVSCODE\WEB\HTML\NUTRI\IM\IM3.webp">
+        </div>
+    </div>
+    
+    <h3 style="text-align: center;">Top Meal Recommendations</h3>
+    <ul class="meal-list">
+        <li class="meal-item">
+            <img src="https://i.pinimg.com/736x/5b/d1/9f/5bd19fb15894177580d692df6ccd997e.jpg" alt="Grilled Chicken & Quinoa Salad">
+            <p>Grilled Chicken & Quinoa Salad</p>
+        </li>
+        <li class="meal-item">
+            <img src="https://i.pinimg.com/736x/02/a0/4f/02a04f553bcf8577cc97d3530daa0826.jpg" alt="Vegetable Stir-fry with Brown Rice">
+            <p>Vegetable Stir-fry with Brown Rice</p>
+        </li>
+        <li class="meal-item">
+            <img src="https://th.bing.com/th/id/OIP.2kEHHt_4s2QxFHAXUFyj2AHaDt?rs=1&pid=ImgDetMain" alt="Oatmeal with Nuts & Berries">
+            <p>Oatmeal with Nuts & Berries</p>
+        </li>
+        <li class="meal-item">
+            <img src="https://www.thebakingchocolatess.com/wp-content/uploads/2014/05/IMG_6592.jpg" alt="Protein Smoothie (Banana & Peanut Butter)">
+            <p>Protein Smoothie (Banana & Peanut Butter)</p>
+        </li>
+    </ul>
+    <div class="container">
+        <h2>Nutri Dashboard</h2>
+        
+        <div class="chart-container">
+            <h3>Budget Tracking</h3>
+            <canvas id="budgetChart"></canvas>
+        </div>
+        
+    </div>
+
+    <script>
+        const ctx = document.getElementById('budgetChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Groceries', 'Dining Out', 'Supplements', 'Misc'],
+                datasets: [{
+                    label: 'Cost Breakdown ($)',
+                    data: [200, 50, 30, 20],
+                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0']
+                }]
+            }
+        });
+    </script>
+
+    <div class="meal-title">Meal Plans</div>
+    <div class="filters">
+        <select id="budgetFilter">
+            <option value="">Select Budget</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <select id="dietFilter">
+            <option value="">Select Diet</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="non-vegetarian">Non-Vegetarian</option>
+        </select>
+        <button onclick="filterMeals()">Apply Filters</button>
+    </div>
+    
+    <div class="meal-plans" id="mealPlans">
+        <div class="meal-card" data-budget="low" data-diet="vegetarian">
+            <img src="https://i.pinimg.com/736x/35/38/72/353872fff386a82d3d9378ed70762e9a.jpg" alt="Vegetarian Meal 1">
+            <p>Budget Veg Meal 1</p>
+        </div>
+        <div class="meal-card" data-budget="low" data-diet="vegetarian">
+            <img src="https://i.pinimg.com/736x/31/17/79/3117798277633d30993e40fdb344e789.jpg" alt="Vegetarian Meal 2">
+            <p>Budget Veg Meal 2</p>
+        </div>
+        <div class="meal-card" data-budget="low" data-diet="vegetarian">
+            <img src="https://i.pinimg.com/736x/02/a0/4f/02a04f553bcf8577cc97d3530daa0826.jpg" alt="Vegetarian Meal 3">
+            <p>Budget Veg Meal 3</p>
+        </div>
+        <div class="meal-card" data-budget="medium" data-diet="vegan">
+            <img src="https://i.pinimg.com/736x/5d/ef/20/5def205ddbe1c579478561589dfdb4a8.jpg" alt="Vegan Meal 1">
+            <p>Mid-Range Vegan Meal 1</p>
+        </div>
+        <div class="meal-card" data-budget="medium" data-diet="vegan">
+            <img src="https://i.pinimg.com/736x/b7/74/ea/b774ea09afa2674479b9493922600e6e.jpg" alt="Vegan Meal 2">
+            <p>Mid-Range Vegan Meal 2</p>
+        </div>
+        <div class="meal-card" data-budget="medium" data-diet="vegan">
+            <img src="https://i.pinimg.com/736x/4c/b5/68/4cb5685198f2b9e78bb65e6c0aa31b0c.jpg" alt="Vegan Meal 3">
+            <p>Mid-Range Vegan Meal 3</p>
+        </div>
+        <div class="meal-card" data-budget="high" data-diet="non-vegetarian">
+            <img src="https://i.pinimg.com/736x/5b/d1/9f/5bd19fb15894177580d692df6ccd997e.jpg" alt="Non-Vegetarian Meal 1">
+            <p>Premium Non-Veg Meal 1</p>
+        </div>
+        <div class="meal-card" data-budget="high" data-diet="non-vegetarian">
+            <img src="https://i.pinimg.com/736x/1b/60/6a/1b606a1b1dc63ece31e17a2bf7e1a874.jpg" alt="Non-Vegetarian Meal 2">
+            <p>Premium Non-Veg Meal 2</p>
+        </div>
+        <div class="meal-card" data-budget="high" data-diet="non-vegetarian">
+            <img src="https://i.pinimg.com/736x/d5/77/39/d577393685ba587221748fb2033618c8.jpg" alt="Non-Vegetarian Meal 3">
+            <p>Premium Non-Veg Meal 3</p>
+        </div>
+    </div>
+
+    <script>
+        function filterMeals() {
+            const budget = document.getElementById('budgetFilter').value;
+            const diet = document.getElementById('dietFilter').value;
+            const meals = document.querySelectorAll('.meal-card');
+            
+            meals.forEach(meal => {
+                const mealBudget = meal.getAttribute('data-budget');
+                const mealDiet = meal.getAttribute('data-diet');
+                
+                if ((budget === '' || mealBudget === budget) && (diet === '' || mealDiet === diet)) {
+                    meal.style.display = 'block';
+                } else {
+                    meal.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll('.banner img');
+        
+        function changeImage() {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+        }
+        
+        setInterval(changeImage, 3000);
+    </script>
+    <!-- Bottom Navigation Bar -->
+<div class="bottom-nav" style="position: fixed; bottom: 0; width: 100%;text-align: center; padding: 10px;">
+    <a href="contact.html#privacy-policy" style=" margin: 10px; text-decoration: none;">Privacy Policy</a>
+    <a href="contact.html#terms" style=" margin: 10px; text-decoration: none;">Terms of Service</a>
+    <a href="contact.html#contact" style="margin: 10px; text-decoration: none;">Help</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Homepage</title>
+    <link rel="stylesheet" href="ecom.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo" onclick="window.location.href='ecom.html'">NUTRI</div>
+        <input type="text" class="search-bar" placeholder="Search">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.location.href='account.html'">Account</button>
+            <button class="nav-btn" onclick="window.location.href='cart.html'">Cart</button>
+        </div>
+    </header>
+
+    <!-- Second Navigation Bar (Below First Navbar) -->
+    <nav class="second-nav">
+        <a href="ecom.html" onclick="window.location.href='ecom.html'">Home</a>
+        <a href="product.html" onclick="window.location.href='product.html'">Products</a>
+        <a href="service.html" onclick="window.location.href='service.html'">Service</a>
+        <a href="contact.html" onclick="window.location.href='contact.html'">Contact</a>
+    </nav>
+    <d<div class="container">
+        <h1>Doctor Video Consultation</h1>
+        <video id="localVideo" autoplay playsinline></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+        <div class="controls">
+            <button onclick="endCall()">End Call</button>
+        </div>
+    </div>
+    
+    <script>
+        let localStream;
+        let remoteStream;
+        let peerConnection;
+        const servers = { iceServers: [{ urls: "stun:stun.l.google.com:19302" }] };
+    
+        async function startCall() {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                document.getElementById("localVideo").srcObject = localStream;
+    
+                peerConnection = new RTCPeerConnection(servers);
+    
+                localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
+    
+                peerConnection.ontrack = event => {
+                    if (!remoteStream) {
+                        remoteStream = new MediaStream();
+                        document.getElementById("remoteVideo").srcObject = remoteStream;
+                    }
+                    remoteStream.addTrack(event.track);
+                };
+    
+                peerConnection.onicecandidate = event => {
+                    if (event.candidate) {
+                        console.log("New ICE candidate:", event.candidate);
+                        // Send to the remote peer via WebSocket or signaling server
+                    }
+                };
+    
+                const offer = await peerConnection.createOffer();
+                await peerConnection.setLocalDescription(offer);
+    
+                console.log("Offer Created:", offer);
+                // Send `offer` to the remote peer
+            } catch (error) {
+                console.error("Error starting call:", error);
+                alert("Failed to access camera/microphone");
+            }
+        }
+    
+        function endCall() {
+            if (peerConnection) {
+                peerConnection.close();
+                peerConnection = null;
+            }
+            if (localStream) {
+                localStream.getTracks().forEach(track => track.stop());
+                document.getElementById("localVideo").srcObject = null;
+                document.getElementById("remoteVideo").srcObject = null;
+            }
+        }
+    
+        // Automatically start the call when the page loads
+        window.onload = startCall;
+    </script>
+    
+</html>
